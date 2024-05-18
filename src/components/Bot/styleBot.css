@@ -1,0 +1,34 @@
+.bot{
+    display: flex;
+    flex-direction:row;
+}
+
+.bot-message{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 6px;
+    color: #363062;
+   
+}
+.bot-message-text{
+    margin-right: 10px;
+    background-color:#EDECDE;
+    max-width: 70%;
+    padding: 10px;
+    border-radius: 15px;
+    position: relative;
+}
+.bot-message-time{
+    font-size: 0.8em;
+    color: #777;
+    opacity: 0;
+}
+.bot-message:hover .bot-message-time{
+    opacity: 1;
+}
+/* 
+.bot-message:hover .bot-message-time{
+    font-size: 0.5em;
+    color: #777;
+} */

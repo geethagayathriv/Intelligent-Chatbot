@@ -1,0 +1,57 @@
+.header{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 5px;
+    position: sticky;
+    border-bottom: 1px solid #ccc;
+}
+.top-header{
+    display: flex;
+    align-items: center;
+}
+.image img{
+    display: flex;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.chatbot-head{
+    margin-left: 10px;
+    width: 90px;
+}
+.name{
+    font-weight: 500;
+    font-size: 1.3em;
+}
+.status{
+    display: inline;
+    font-weight: 500;
+}
+.close{
+    height:60px;
+    display: flex;
+    align-items: center;
+}
+.close-btn{
+    border:none;
+    outline: none;
+    align-items: center;
+    background-color: white
+}
+#x{
+    color: #dad6da;
+    font-size: 25px;
+    margin-left: 100px;
+    cursor: pointer;
+}
+
+#x:hover{
+    color:  #363062;
+}
+
+
+

@@ -1,0 +1,33 @@
+.btm{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+input{
+    width:220px;
+    height:40px;
+    padding-left: 36px;
+    outline: none;
+    border:2px solid#363062;
+    background-color: #EDECED;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+.btn{
+    margin-left: 10px;
+}
+.send-btn{
+    width:70px;
+    height: 40px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background: #363062;
+    color: #FFF;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 13px;
+}
+i{
+    margin-right: 5px;
+}

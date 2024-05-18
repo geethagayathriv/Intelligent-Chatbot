@@ -1,0 +1,29 @@
+.human{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+
+.human-message{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin-right: 6px;
+    color: white;
+    
+}
+
+.human-message-text{
+    margin-left: 10px;
+    max-width: 70%;
+    padding: 8px;
+    position: relative;
+    background-color: #363062;
+    border-radius: 15px;
+    font-size: 13px;
+}
+
+.human-message:hover .human-message-time{
+    font-size: 0.8em;
+    color: #777;
+}
