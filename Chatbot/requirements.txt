@@ -1,0 +1,9 @@
+langchain
+langchain-community
+bs4==0.0.2
+html2text
+python-dotenv
+langchain-fireworks
+requests
+fastapi
+uvicorn
