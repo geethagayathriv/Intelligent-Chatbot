@@ -37,7 +37,7 @@ def get_data_from_website(url):
 
     return text, metadata
 
-url = "https://www.udemy.com/"  
+url = "https://scora.io/"  
 text_content, metadata = get_data_from_website(url)
 print("Text Content:")
 print(text_content)

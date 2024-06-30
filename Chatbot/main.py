@@ -15,7 +15,7 @@ load_dotenv()
 app = FastAPI()
 
 # Scrape and clean the data
-url = "https://www.udemy.com/"
+url = "https://scora.io/"
 text_content, metadata = get_data_from_website(url)
 doc_chunks = get_doc_chunks(text_content, metadata)
 context = "\n".join([chunk.page_content for chunk in doc_chunks])
@@ -29,7 +29,7 @@ class ChatRequest(BaseModel):
 def generate_response(system_prompt, user_question):
     api_key = os.getenv("FIREWORKS_API_KEY")
     chat = ChatFireworks(api_key=api_key, 
-                         model="accounts/fireworks/models/mixtral-8x7b-instruct",
+                         model="accounts/fireworks/models/llama-v3-70b-instruct",
                          max_tokens=256)
 
     system_message = SystemMessage(content=system_prompt)
