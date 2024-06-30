@@ -14,20 +14,32 @@ load_dotenv()
 # Initialize FastAPI app
 app = FastAPI()
 
-# Scrape and clean the data
-url = "https://scora.io/"
-text_content, metadata = get_data_from_website(url)
-doc_chunks = get_doc_chunks(text_content, metadata)
-context = "\n".join([chunk.page_content for chunk in doc_chunks])
+# SCORA-specific information
+SCORA_INFO = {
+    "organization_name": "SCORA",
+    "organization_info": "SCORA is a cloud-based platform for creating, managing, and administering assessments.",
+    "contact_info": """Email: hello@scora.io
+Phone: +91 8884945100
+Raise a query: https://scora.io/contact/"""
+}
+
+# Initialize data
+def initialize_data():
+    url = "https://scora.io/"
+    text_content, metadata = get_data_from_website(url)
+    doc_chunks = get_doc_chunks(text_content, metadata)
+    return "\n".join([chunk.page_content for chunk in doc_chunks])
+
+context = initialize_data()
 
 class ChatRequest(BaseModel):
     question: str
-    organization_name: str
-    organization_info: str
-    contact_info: str
 
 def generate_response(system_prompt, user_question):
     api_key = os.getenv("FIREWORKS_API_KEY")
+    if not api_key:
+        raise ValueError("FIREWORKS_API_KEY not found in environment variables")
+    
     chat = ChatFireworks(api_key=api_key, 
                          model="accounts/fireworks/models/llama-v3-70b-instruct",
                          max_tokens=256)
@@ -35,35 +47,30 @@ def generate_response(system_prompt, user_question):
     system_message = SystemMessage(content=system_prompt)
     human_message = HumanMessage(content=user_question)
     response = chat.invoke([system_message, human_message])
-    generated_response = response.content
-    return generated_response
+    return response.content
 
-def get_response(question, organization_name, organization_info, contact_info):
+def get_response(question):
     prompt = get_prompt()
     formatted_prompt = prompt.format_prompt(
         context=context,
         question=question,
         chat_history="",
-        organization_name=organization_name,
-        organization_info=organization_info,
-        contact_info=contact_info
+        **SCORA_INFO
     )
-    formatted_prompt_str = str(formatted_prompt)  # Ensure it's a string
-    response = generate_response(formatted_prompt_str, question)
-    return response
+    formatted_prompt_str = str(formatted_prompt)
+    return generate_response(formatted_prompt_str, question)
 
 @app.post("/chat")
-def chat_endpoint(request: ChatRequest):
+async def chat_endpoint(request: ChatRequest):
     try:
-        response = get_response(request.question, request.organization_name, request.organization_info, request.contact_info)
+        response = get_response(request.question)
         return {"response": response}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-# Example endpoint to check the service status
 @app.get("/")
-def read_root():
-    return {"message": "Welcome to the chatbot API. Use /chat to interact with the bot."}
+async def read_root():
+    return {"message": "Welcome to the SCORA chatbot API. Use /docs to interact with the bot."}
 
 if __name__ == "__main__":
     import uvicorn
