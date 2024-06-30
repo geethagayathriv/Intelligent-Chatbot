@@ -1,7 +1,6 @@
 # Intelligent-Chatbot
 ![Concept map (1)](https://github.com/geethagayathriv/Intelligent-Chatbot/assets/163413946/38d4e75f-51d0-47a9-ac14-9f1ece9cd17e)
 
-
 This project implements an intelligent chatbot for SCORA, a cloud-based platform for creating, managing, and administering assessments. The chatbot uses web scraping, text processing, and AI to provide informative responses about SCORA's services.
 
 ## Table of Contents
