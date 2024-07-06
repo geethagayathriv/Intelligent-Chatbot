@@ -20,10 +20,11 @@
     position: relative;
     background-color: #363062;
     border-radius: 15px;
-    font-size: 13px;
+    font-size: 16px;
 }
 
 .human-message:hover .human-message-time{
     font-size: 0.8em;
     color: #777;
+    align-items:baseline;
 }

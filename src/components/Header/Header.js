@@ -1,5 +1,5 @@
 import React from 'react';
-import image from '../../image/bot_image.png'
+// import image from '/public/bot_image.png'
 import './Header.css'
 
 const Header=({name,status,closeChat})=>{
@@ -10,7 +10,7 @@ const Header=({name,status,closeChat})=>{
         <div className='header'>
             <div className='top-header'>
                 <div className='image'>
-                    <img src={image} alt='image'/>
+                    <img src={`${process.env.PUBLIC_URL}/bot_image.png`} alt='image'/>
                 </div>
                 <div className='chatbot-head'>
                     <div className='name'>{name}</div>

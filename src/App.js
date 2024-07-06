@@ -35,11 +35,13 @@ function App() {
       inputRef.current.value="";
       console.log(messages)
       try{
-        const endPoint='http://localhost:8000/api/runQuery'
-        const response=await axios.post(endPoint,{message:userMessage});
+        const endPoint='http://localhost:8000/chat'
+        const response=await axios.post(endPoint,{
+          question: userMessage,
+      });
         console.log(response)
         const botMessage={
-          text:response.data.name,
+          text:response.data.response,
           sender:'bot',
           timestamp:new Date().toISOString()
         }

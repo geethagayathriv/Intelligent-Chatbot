@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     gap: 6px;
-    font-size: 13px;
+    font-size: 16px;
 }
 .initial-message{
     display: flex;

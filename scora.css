@@ -1,0 +1,315 @@
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.auth-buttons a {
+    text-decoration: none;
+    padding: 10px 30px;
+    border: 1px solid #426081;
+    border-radius: 5px;
+    /* color: #455a6f; */
+    font-size: 16px;
+}
+
+
+.sign-up {
+    background-color: #395778;
+    color: white;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.blue-button{
+    background-color: #003366;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 15px;
+}
+
+.blue-question-box{
+    background-color: #dff0f7;
+    height: auto;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    font-size: 25px;
+}
+
+footer {
+    background-color: #003366;
+    color: white;
+    padding: 20px;
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #87ceeb;
+}
+
+.footer-logo {
+    max-width: 40%;
+}
+
+.footer-logo img {
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.footer-updates h3 {
+    margin-bottom: 10px;
+}
+
+.footer-updates form {
+    display: flex;
+}
+
+.footer-updates input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    width: 200px;
+}
+
+.footer-updates button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #ffcc00;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    flex-direction: column;
+}
+
+.footer-social a {
+    margin: 0 5px;
+    color: aliceblue
+}
+
+.fl1{
+    display: flex;
+    flex-direction: row;
+}
+
+.footer-social{
+    padding-top: 9px;
+    padding-left: 100px;
+}
+
+.footer-social img {
+    height: 20px;
+}
+
+.footer-contact{
+    display: flex;
+}
+
+.footer-contact p {
+    margin: 5px 0;
+}
+
+.footer-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.footer-legal {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footer-legal a {
+    margin-left: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    padding-left: 8%;
+    padding-right: 8%;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    padding-left: 8%;
+    padding-right: 8%;
+    background-color: #0E497A;
+    color: white;
+    flex-direction: row;
+}
+
+.hero-content {
+    flex: 1;
+    justify-content: left;
+}
+
+.hero-content h1 {
+    font-size: 55px;
+    padding-bottom: 10px;
+}
+
+.hero-content span {
+    color: #87ceeb;
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    padding-bottom: 20px;
+}
+
+.hero-buttons {
+    margin-top: 20px;
+    padding-bottom: 60px;
+}
+
+.hero-buttons a {
+    text-decoration: none;
+    background-color: white;
+    color: #003366;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    width: 400px;
+    height: 400px;
+    justify-content: right;
+}
+
+.job-sec {
+    display: flex;
+    flex-direction: row;
+    margin: 50px;
+}
+
+.job-role-questions{
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin: 0;
+    padding-right: 250px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+}
+
+.question {
+    margin: 50px;
+    margin-left: 50px;
+}
+
+.section{
+    display: flex;
+    flex-direction: column;
+}
+
+.seven-steps{
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+.seven-steps-button{
+    align-items: center;
+    color: rgb(40, 40, 93);
+    background-color: #ffcc00;
+    padding: 12px 50px 12px 50px;
+    border-radius: 8px 8px 8px 8px;
+    font-size: 20px;
+}
+
+.testimonial {
+    padding-left: 8%;
+    background-color: #f9f9f9;
+    padding-right: 8%;
+}
+
+.testimonial h2 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #003366;
+}
+
+.testimonial-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 90%;
+    padding: 30px;
+}
+
+.testimonial-text {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+    width: 70%
+}
+
+.testimonial-author {
+    display: flex;
+    margin-top: 10px;
+    flex-direction: row;
+}
+
+.testimonial-author2 {
+    display: flex;
+    flex-direction: row;
+}
+
+.testimonial-author img {
+    width: 40%;
+    height: 40%;
+}
+
+.testimonial-author2 img {
+    width: 40%;
+    height: 40%;
+}
