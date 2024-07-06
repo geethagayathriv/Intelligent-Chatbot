@@ -26,8 +26,10 @@ def generate_response(system_prompt, user_question):
     system_message = SystemMessage(content=system_prompt)
     human_message = HumanMessage(content=user_question)
     response = chat.invoke([system_message, human_message])
+   
     generated_response = response.content
     return generated_response
+
 
 def get_response(question, organization_name, organization_info, contact_info):
     prompt = get_prompt()
