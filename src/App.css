@@ -6,6 +6,29 @@
   height: 100%;
 }
 
+.loading-dots {
+  font-size: 40px;
+  text-align: center;
+  padding: 10px;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.loading-dots::after {
+  content: '...';
+  animation: blink 1s infinite;
+}
+
+.message-avatar{
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
 
 .wrapper.open{
   position:fixed;
@@ -25,7 +48,6 @@
   opacity: 0;
 }
 
-
 .content{
   display: flex;
   align-items: center;
@@ -35,6 +57,7 @@
 .main{
   height: 80%;
 }
+
 .main_content{
   height:85%;
   overflow-y: scroll;
@@ -45,6 +68,7 @@
   height: 15%;
   margin-top: 5px;
 }
+
 .chatbot_icon{
   position: fixed;
   bottom: 20px;

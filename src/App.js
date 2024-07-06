@@ -11,8 +11,8 @@ function App() {
     const [isChatboxOpen,setIsChatboxOpen]=useState(false)
     const [status,setSatus]=useState('Not Active')
     const [messages,setMessages]=useState([])
-    const inputRef=useRef();
-   
+    const [isLoading, setIsLoading] = useState(false);
+    const inputRef=useRef();   
 
     const toggleChatbox=()=>{
       setIsChatboxOpen(!isChatboxOpen)
@@ -26,13 +26,13 @@ function App() {
       }
     },[isChatboxOpen]);
 
-
     const handleSend=async()=>{
       const userMessage=inputRef.current.value;
       if(!userMessage.trim()) return;
       const newMessage=[...messages,{sender:'human',text:userMessage,timestamp:new Date().toISOString()}];
       setMessages(newMessage)
       inputRef.current.value="";
+      setIsLoading(true);
       console.log(messages)
       try{
         const endPoint='http://localhost:8000/chat'
@@ -50,6 +50,9 @@ function App() {
       catch(error){
         console.log('error sending message: ',error)
       }
+      finally {
+        setIsLoading(false); // Set loading state to false
+      }
     }
 
   return (
@@ -61,6 +64,7 @@ function App() {
           <div className="main">
             <div className="main_content">
               <Messages messages={messages}/>
+              {isLoading && <div className="loading-dots">...</div>}
             </div>
             <div className="bottom"> 
               <Input inputRef={inputRef} handleSend={handleSend}/>

@@ -1,5 +1,4 @@
 import React from "react";
-// import user from '\public\user.png'
 import './styleHuman.css'
 
 const HumanMessage=({message,timestamp})=>{

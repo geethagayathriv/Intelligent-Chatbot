@@ -18,6 +18,7 @@
     padding: 10px;
     border-radius: 15px;
     position: relative;
+    word-wrap: break-word;
 }
 .bot-message-time{
     font-size: 0.8em;
