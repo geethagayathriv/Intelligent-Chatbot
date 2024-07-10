@@ -21,7 +21,8 @@ def generate_response(system_prompt, user_question):
     api_key = os.getenv("FIREWORKS_API_KEY")
     chat = ChatFireworks(api_key=api_key, 
                     model="accounts/fireworks/models/llama-v3-70b-instruct",
-                    max_tokens=4096)
+                    max_tokens=4096,
+                    temperature = 0)
 
     system_message = SystemMessage(content=system_prompt)
     human_message = HumanMessage(content=user_question)
