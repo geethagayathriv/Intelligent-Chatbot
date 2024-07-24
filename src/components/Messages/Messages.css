@@ -4,11 +4,13 @@
     gap: 6px;
     font-size: 16px;
 }
+
 .initial-message{
     display: flex;
     align-items: center;
     margin-top: 6px;
 }
+
 .start-message{
     margin-left: 6px;
     background-color: #EDECDE;
@@ -16,14 +18,10 @@
     padding: 8px;
     border-radius: 20px;
 }
+
 .message-avatar{
     display: block;
     width: 30px;
     height: 30px;
     border-radius: 50%;
 }
-
-
-
-
-

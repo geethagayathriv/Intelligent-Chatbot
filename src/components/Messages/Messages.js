@@ -15,6 +15,7 @@ const Messages=({messages})=>{
     useEffect(() => {
         scrollToBottom();
     }, [messages]);
+
     const formatTime=(timestamp)=>{
         const date=new Date(timestamp);
         const hours=date.getHours();
@@ -26,20 +27,17 @@ const Messages=({messages})=>{
         <div className="messages">
             <div className="initial-message">
                 <img src={`${process.env.PUBLIC_URL}/bot_icon.jpg`} className="message-avatar"/>
-                <div className="start-message">Hi I am Scora your personal scora assistant. Let's get started!</div>
+                <div className="start-message">Hello! I'm here to help with any questions you have</div>
             </div>
             <Buttons />
                 {messages.map((message,index)=>(
                     message.sender==='bot'?
                     <Botmessage message={message.text} timestamp={formatTime(message.timestamp)}/>:
                     <HumanMessage message={message.text} timestamp={formatTime(message.timestamp)}/>))}
-                    <div ref={messagesEndRef} />
+               <div ref={messagesEndRef} />
         </div>
     )
 
 }
 
 export default Messages
-
-
-

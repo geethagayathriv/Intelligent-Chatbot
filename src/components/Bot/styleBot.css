@@ -11,25 +11,24 @@
     color: #363062;
    
 }
+
 .bot-message-text{
     margin-right: 10px;
     background-color:#EDECDE;
+    min-width: 50%;
     max-width: 70%;
     padding: 10px;
     border-radius: 15px;
     position: relative;
     word-wrap: break-word;
 }
+
 .bot-message-time{
     font-size: 0.8em;
     color: #777;
     opacity: 0;
 }
+
 .bot-message:hover .bot-message-time{
     opacity: 1;
 }
-/* 
-.bot-message:hover .bot-message-time{
-    font-size: 0.5em;
-    color: #777;
-} */

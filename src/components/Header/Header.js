@@ -1,5 +1,4 @@
 import React from 'react';
-// import image from '/public/bot_image.png'
 import './Header.css'
 
 const Header=({name,status,closeChat})=>{

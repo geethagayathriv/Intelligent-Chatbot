@@ -12,4 +12,5 @@ const HumanMessage=({message,timestamp})=>{
         </div>
     )
 }
+
 export default HumanMessage;

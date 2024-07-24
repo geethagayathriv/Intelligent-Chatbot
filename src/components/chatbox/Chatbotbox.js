@@ -1,5 +1,4 @@
 import React from "react";
-// import image from '/public/chatbox_icon.png'
 import './Chatbotbox.css'
 const Chatbotbox=({toggleChatbox})=>{
     return(
@@ -8,4 +7,5 @@ const Chatbotbox=({toggleChatbox})=>{
         </div>
     )
 }
+
 export default Chatbotbox
