@@ -10,15 +10,21 @@ import os
 # Load environment variables from a .env file
 load_dotenv()
 
+# SCORA-specific information
+SCORA_INFO = {
+    "organization_name": "SCORA",
+    "organization_info": "SCORA is a cloud-based platform for creating, managing, and administering assessments.",
+    "contact_info": """Email: hello@scora.io
+Phone: +91 8884945100
+Raise a query: https://scora.io/contact/"""
+}
+
 # Function to initialize data by scraping content from a website
 def initialize_data():
     url = "https://scora.io/"  
     text_content, metadata = get_data_from_website(url)
     doc_chunks = get_doc_chunks(text_content, metadata)
     return "\n".join([chunk.page_content for chunk in doc_chunks])
-
-# Initialize context data from the website
-context = initialize_data()
 
 # Function to generate a response using the Fireworks model
 def generate_response(system_prompt, user_question):
@@ -45,6 +51,7 @@ def manage_chat_history(chat_history, new_entry, max_entries=10):
 # Function to get a response for a user question and update chat history
 def get_response(question, organization_name, organization_info, contact_info, chat_history):
     prompt = get_prompt()
+    context = initialize_data()  # Get fresh context for each request
     
     # Convert chat history to string
     chat_history_str = "\n".join(chat_history)
@@ -69,19 +76,22 @@ def get_response(question, organization_name, organization_info, contact_info, c
     
     return response, chat_history
 
-
+# Main function for testing
 def main():
     chat_history = []
-    organization_name = "SCORA"
-    organization_info = "SCORA is a cloud-based platform for creating, managing, and administering assessments."
-    contact_info = "You can contact SCORA support at support@scora.io."
 
     while True:
         question = input("Enter your question (or 'quit' to exit): ")
         if question.lower() == 'quit':
             break
 
-        response, chat_history = get_response(question, organization_name, organization_info, contact_info, chat_history)
+        response, chat_history = get_response(
+            question,
+            SCORA_INFO["organization_name"],
+            SCORA_INFO["organization_info"],
+            SCORA_INFO["contact_info"],
+            chat_history
+        )
         print("AI:", response)
 
 if __name__ == "__main__":
