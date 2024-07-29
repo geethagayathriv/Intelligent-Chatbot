@@ -46,28 +46,43 @@ class ChatRequest(BaseModel):
 
 def generate_response(system_prompt, user_question):
     api_key = os.getenv("FIREWORKS_API_KEY")
-    if not api_key:
-        raise ValueError("FIREWORKS_API_KEY not found in environment variables")
-    
     chat = ChatFireworks(api_key=api_key, 
                          model="accounts/fireworks/models/llama-v3-70b-instruct",
-                         max_tokens=4096, temperature = 0.5)
+                         max_tokens=8192,
+                         temperature=0)
 
     system_message = SystemMessage(content=system_prompt)
     human_message = HumanMessage(content=user_question)
     response = chat.invoke([system_message, human_message])
-    return response.content
+   
+    generated_response = response.content
+    return generated_response
 
-def get_response(question):
+def get_response(question, organization_name, organization_info, contact_info, chat_history):
     prompt = get_prompt()
+    
+    # Convert chat history to string
+    chat_history_str = "\n".join(chat_history)
+    
+    # Format the prompt with provided context and information
     formatted_prompt = prompt.format_prompt(
         context=context,
         question=question,
-        chat_history="",
-        **SCORA_INFO
+        chat_history=chat_history_str,
+        organization_name=organization_name,
+        organization_info=organization_info,
+        contact_info=contact_info
     )
-    formatted_prompt_str = str(formatted_prompt)
-    return generate_response(formatted_prompt_str, question)
+    formatted_prompt_str = str(formatted_prompt)  
+    
+    # Generate the AI response
+    response = generate_response(formatted_prompt_str, question)
+    
+    # Update chat history with the new question and response
+    new_entry = f"Human: {question}\nAI: {response}"
+    chat_history = manage_chat_history(chat_history, new_entry)
+    
+    return response, chat_history
 
 @app.post("/chat")
 async def chat_endpoint(request: ChatRequest):
